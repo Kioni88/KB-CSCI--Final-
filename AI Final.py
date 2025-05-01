@@ -137,7 +137,7 @@ def run_meal_planner():
 
         again = input("\nRun again? (yes/no): ").strip().lower()
         if again != "yes":
-            print("Goodbye! 👋")
+            print()
             break
 
 # --- Run the program ---
