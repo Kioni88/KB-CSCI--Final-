@@ -1,11 +1,10 @@
-# --- Imports ---
 import pandas as pd
 import numpy as np
 import random
 import networkx as nx
 import matplotlib.pyplot as plt
 
-# --- Load and Prepare Data ---
+
 csv_path = "nutrition.csv"  # Replace with your actual path if needed
 meal_df = pd.read_csv(csv_path)
 meal_list = list(meal_df["Dish Name"].dropna().unique()[:8])  # First 8 meals
@@ -52,7 +51,7 @@ emission_prob = {
     }
 }
 
-# --- HMM Meal Sequence Generator ---
+
 def generate_meal_sequence(start_meal, num_steps=7):
     meals = [start_meal]
     moods = []
@@ -77,7 +76,7 @@ def generate_meal_sequence(start_meal, num_steps=7):
 
     return meals, moods
 
-# --- Graph Visualization Function ---
+
 def draw_meal_transition_graph_fixed(meals, moods):
     G = nx.DiGraph()
     mood_colors = {"Healthy Mood": "green", "Unhealthy Mood": "red"}
@@ -108,7 +107,7 @@ def draw_meal_transition_graph_fixed(meals, moods):
     plt.title("Meal Plan Transition Graph (Each Node = Meal + Day)")
     plt.show()
 
-# --- Main Interactive Loop ---
+
 def run_meal_planner():
     while True:
         print("\nAvailable meals:")
@@ -140,5 +139,5 @@ def run_meal_planner():
             print()
             break
 
-# --- Run the program ---
+
 run_meal_planner()
